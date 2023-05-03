@@ -1,7 +1,13 @@
-import React from "react";
 import "./TextInput.css";
 
-export const TextInput = ({ label, name, handleChange, placeHolder }) => {
+export const TextInput = ({
+    label,
+    name,
+    handleChange,
+    placeHolder,
+    errorFields,
+    isFormValidOnBlur,
+}) => {
     return (
         <div className="formContainer">
             <label className="Mainlabel">{label}</label>
@@ -12,10 +18,11 @@ export const TextInput = ({ label, name, handleChange, placeHolder }) => {
                 className="inputSize"
                 id="firstName"
                 onChange={handleChange}
+                onBlur={isFormValidOnBlur}
             />
-            {/* <span className="danger">
-                <p>nooo</p>
-            </span> */}
+            {errorFields[name] && (
+                <p className="danger">{label} is not Valid</p>
+            )}
         </div>
     );
 };

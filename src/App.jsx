@@ -30,29 +30,23 @@ function App() {
     const handleCheckBox = (e) => {
         if (e.target.checked) {
             fields.skills.push(e.target.value);
-            console.log(fields);
         } else {
+            if (fields.skills == 0) {
+                errorFields.skills = true;
+            }
             fields.skills.pop(e.target.value);
-            console.log(fields);
+        }
+        if (fields.skills == 0) {
+            errorFields.skills = true;
         }
     };
 
     //handleChange
     const handleChange = (e) => {
-        setFields({
-            ...fields,
-            [e.target.name]: e.target.value,
-        });
-    };
-
-    //Form Valid on Blur Checking
-    const isFormValidOnBlur = (e) => {
         const { name, value } = e.target;
         let error = false;
 
-        if (name === "firstName" && value === "") {
-            error = true;
-        } else if (
+        if (
             name === "email" &&
             (value === "" ||
                 !/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(
@@ -60,10 +54,39 @@ function App() {
                 ))
         ) {
             error = true;
-        } else if (name === "gender" && value === "") {
+        } else if (value == "") {
             error = true;
-        } else if (name === "country" && value === "") {
+        }
+        setErrorFields((prev) => ({
+            ...prev,
+            [name]: error,
+        }));
+
+        setFields((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    //Form Valid on Blur Checking
+    const isFormValidOnBlur = (e) => {
+        const { name, value } = e.target;
+        let error = false;
+
+        if (
+            name === "email" &&
+            (value === "" ||
+                !/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(
+                    value
+                ))
+        ) {
             error = true;
+        } else if (value === "") {
+            error = true;
+        } else if (name == "skills") {
+            if (fields.skills == 0) {
+                error = true;
+            }
         }
 
         setErrorFields((prev) => ({
@@ -74,6 +97,7 @@ function App() {
 
     //Checking form is valid on submit
     const isFormValidOnSubmit = () => {
+        console.log(fields);
         const errors = {
             firstName: false,
             email: false,
@@ -122,6 +146,7 @@ function App() {
                     isFormValidOnBlur={isFormValidOnBlur}
                     name="firstName"
                     placeHolder="Enter the FirstName"
+                    errorFields={errorFields}
                 />
                 <TextInput
                     label="Email"
@@ -129,15 +154,34 @@ function App() {
                     isFormValidOnBlur={isFormValidOnBlur}
                     name="email"
                     placeHolder="Enter the Email"
+                    errorFields={errorFields}
                 />
                 <Radio
                     label="Gender"
-                    heandleChange={handleCheckBox}
+                    handleChange={handleChange}
+                    errorFields={errorFields}
                     name="gender"
                 />
-                <CheckBox handleChange={handleCheckBox} />
-                <Dob handleChange={handleChange} />
-                <SelectDropdown label="Country" handleChange={handleChange} />
+                <CheckBox
+                    handleChange={handleCheckBox}
+                    isFormValidOnBlur={isFormValidOnBlur}
+                    label="Skills"
+                    errorFields={errorFields}
+                    name="skills"
+                />
+                <Dob
+                    handleChange={handleChange}
+                    label="Date of Birth"
+                    errorFields={errorFields}
+                    name="dob"
+                />
+                <SelectDropdown
+                    label="Country"
+                    handleChange={handleChange}
+                    isFormValidOnBlur={isFormValidOnBlur}
+                    errorFields={errorFields}
+                    name="country"
+                />
                 <div className="buttonContainer">
                     <button type="submit">Submit</button>
                 </div>

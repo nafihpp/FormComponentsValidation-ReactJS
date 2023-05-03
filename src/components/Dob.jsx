@@ -1,19 +1,21 @@
 import React from "react";
 import "./Dob.css";
 
-export const Dob = () => {
+export const Dob = ({ handleChange, label, errorFields, name }) => {
     return (
         <div className="formSingleContainer">
             <label htmlFor="" className="Mainlabel">
-                Date of Birth
+                {label}
             </label>
             <input
                 placeholder="{label}"
                 type="date"
-                name="{name}"
+                name="dob"
                 className="inputSize"
                 id="firstName"
+                onChange={handleChange}
             />
+            {errorFields[name] && <p className="danger">{label} is required</p>}
         </div>
     );
 };

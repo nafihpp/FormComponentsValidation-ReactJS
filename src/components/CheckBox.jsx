@@ -1,10 +1,15 @@
-import React from "react";
 import "./CheckBox.css";
 
-export const CheckBox = ({ handleChange }) => {
+export const CheckBox = ({
+    handleChange,
+    label,
+    errorFields,
+    name,
+    isFormValidOnBlur,
+}) => {
     return (
         <div>
-            <label className="Mainlabel">Skills</label>
+            <label className="Mainlabel">{label}</label>
             <div style={{ display: "flex" }}>
                 <input
                     type="checkbox"
@@ -12,6 +17,7 @@ export const CheckBox = ({ handleChange }) => {
                     name="skills"
                     value="javascript"
                     onChange={handleChange}
+                    onBlur={isFormValidOnBlur}
                 />
                 <label htmlFor="javascript"> Javascript</label>
                 <input
@@ -20,6 +26,7 @@ export const CheckBox = ({ handleChange }) => {
                     name="skills"
                     value="html"
                     onChange={handleChange}
+                    onBlur={isFormValidOnBlur}
                 />
                 <label htmlFor="html">HTML</label>
                 <input
@@ -28,9 +35,11 @@ export const CheckBox = ({ handleChange }) => {
                     value="css"
                     name="skills"
                     onChange={handleChange}
+                    onBlur={isFormValidOnBlur}
                 />
                 <label htmlFor="css">CSS</label>
             </div>
+            {errorFields[name] && <p className="danger">{label} is required</p>}
         </div>
     );
 };

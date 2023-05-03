@@ -1,7 +1,6 @@
-import React from "react";
 import "./Radio.css";
 
-export const Radio = ({ label, name, handleChange }) => {
+export const Radio = ({ label, name, handleChange, errorFields }) => {
     return (
         <>
             <label className="Mainlabel">{label}</label>
@@ -26,9 +25,9 @@ export const Radio = ({ label, name, handleChange }) => {
                     />
                     <label htmlFor="female">Female</label>
                 </div>
-                {/* <span className="danger">
-                <p>noooo</p>
-            </span> */}
+                {errorFields[name] && (
+                    <p className="danger">{label} is required</p>
+                )}
             </div>
         </>
     );
