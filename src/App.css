@@ -1,0 +1,31 @@
+form {
+    background: #fff;
+    max-width: 450px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    min-height: 400px;
+}
+form h1 {
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 25px;
+}
+form p {
+    margin-bottom: 8px;
+    color: #ccc;
+    font-size: 20px;
+}
+.danger {
+    color: red;
+    font-size: 12px;
+    margin-top: 6px;
+}
+.Mainlabel {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 9px;
+    margin-top: 12px;
+    display: inline-block;
+}

@@ -1,0 +1,8 @@
+select {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    outline: none;
+    margin-bottom: 18px;
+}

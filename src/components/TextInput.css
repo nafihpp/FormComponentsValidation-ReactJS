@@ -1,0 +1,27 @@
+.formContainer {
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.formContainer .Mainlabel {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+}
+.formContainer label {
+    font-size: 10px;
+    font-weight: normal;
+}
+.formContainer input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    outline: none;
+    margin-bottom: 18px;
+}
+.formContainer select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+}
