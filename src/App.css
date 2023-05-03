@@ -16,6 +16,18 @@ form p {
     color: #ccc;
     font-size: 20px;
 }
+form .buttonContainer {
+    width: 100%;
+}
+form button {
+    padding: 12px 25px;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    background-color: #000;
+    border-radius: 4px;
+    width: 100%;
+}
 .danger {
     color: red;
     font-size: 12px;

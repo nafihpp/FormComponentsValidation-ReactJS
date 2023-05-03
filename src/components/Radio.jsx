@@ -11,13 +11,20 @@ export const Radio = ({ label, name, handleChange }) => {
                         type="radio"
                         name="gender"
                         value="male"
-                        defaultChecked
+                        id="male"
+                        onChange={handleChange}
                     />
-                    <label htmlFor="">Male</label>
+                    <label htmlFor="male">Male</label>
                 </div>
                 <div>
-                    <input type="radio" name="gender" value="femail" />
-                    <label htmlFor="">Female</label>
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="female"
+                        id="female"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="female">Female</label>
                 </div>
                 {/* <span className="danger">
                 <p>noooo</p>

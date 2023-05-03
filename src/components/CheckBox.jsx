@@ -1,17 +1,35 @@
 import React from "react";
 import "./CheckBox.css";
 
-export const CheckBox = () => {
+export const CheckBox = ({ handleChange }) => {
     return (
         <div>
             <label className="Mainlabel">Skills</label>
             <div style={{ display: "flex" }}>
-                <input type="checkbox" id="javascript" value="nodejs" />
+                <input
+                    type="checkbox"
+                    id="javascript"
+                    name="skills"
+                    value="javascript"
+                    onChange={handleChange}
+                />
                 <label htmlFor="javascript"> Javascript</label>
-                <input type="checkbox" id="vehicle1" value="nodejs" />
-                <label htmlFor="vehicle3">HTML</label>
-                <input type="checkbox" id="vehicle3" value="Boat" />
-                <label htmlFor="vehicle3">CSS</label>
+                <input
+                    type="checkbox"
+                    id="html"
+                    name="skills"
+                    value="html"
+                    onChange={handleChange}
+                />
+                <label htmlFor="html">HTML</label>
+                <input
+                    type="checkbox"
+                    id="css"
+                    value="css"
+                    name="skills"
+                    onChange={handleChange}
+                />
+                <label htmlFor="css">CSS</label>
             </div>
         </div>
     );
