@@ -17,7 +17,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px;
+    padding: 8px 20px;
 }
 .mainContainer {
     width: 50%;
