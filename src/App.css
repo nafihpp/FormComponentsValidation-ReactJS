@@ -30,7 +30,9 @@ form button {
 }
 .danger {
     color: red;
-    font-size: 10px;
+    font-size: 14px;
+    margin-top: 2px;
+    font-weight: 600;
 }
 .Mainlabel {
     font-size: 15px;

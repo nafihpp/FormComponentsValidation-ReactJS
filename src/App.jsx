@@ -97,7 +97,6 @@ function App() {
 
     //Checking form is valid on submit
     const isFormValidOnSubmit = () => {
-        console.log(fields);
         const errors = {
             firstName: false,
             email: false,

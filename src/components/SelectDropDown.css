@@ -6,3 +6,10 @@ select {
     outline: none;
     margin-bottom: 18px;
 }
+.country-danger {
+    color: red;
+    font-weight: 600;
+    margin-top: -7px;
+    margin-bottom: 23px;
+    font-size: 15px;
+}

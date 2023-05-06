@@ -14,7 +14,9 @@ export const SelectDropdown = ({ label, handleChange, name, errorFields }) => {
                 <option value="Qatar">Qatar</option>
                 <option value="Oman">Oman</option>
             </select>
-            {errorFields[name] && <p className="danger">{label} is required</p>}
+            {errorFields[name] && (
+                <p className="country-danger">{label} is required</p>
+            )}
         </div>
     );
 };
